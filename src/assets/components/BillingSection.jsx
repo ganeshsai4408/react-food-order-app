@@ -1,4 +1,5 @@
 import React, { useContext } from "react";
+import { DarkModeContext } from "../context/Dark";
 import { CartContext } from "../context/CartContext";
 import { toast } from 'react-toastify';
 import "./BillingSection.css";
@@ -14,6 +15,9 @@ const BillingSection = () => {
     calculateTotal,
     clearCart,
   } = useContext(CartContext);
+  
+  // Import darkMode from context
+  const { darkMode } = useContext(DarkModeContext);
 
   const taxRate = 0.08;
   const deliveryCharge = 20;
@@ -21,26 +25,33 @@ const BillingSection = () => {
   const subtotal = calculateSubtotal();
   const tax = calculateTax(taxRate);
   const total = calculateTotal(taxRate, deliveryCharge);
-    // 🧪 Log the cart and each item
-    console.log("🛒 Cart items:");
-    cart.forEach((item, index) => {
-      console.log(`Item ${index + 1}:`, {
-        name: item.name,
-        quantity: item.quantity,
-        price: item.price,
-        total: item.total,
-        addons: item.addons,
-        options: item.options
-      });
-    });
   
-   
-    console.log("Subtotal:", subtotal);
-    console.log("Tax:", tax);
-    console.log("Total:", total);
+  // 🧪 Log the cart and each item
+  console.log("🛒 Cart items:");
+  cart.forEach((item, index) => {
+    console.log(`Item ${index + 1}:`, {
+      name: item.name,
+      quantity: item.quantity,
+      price: item.price,
+      total: item.total,
+      addons: item.addons,
+      options: item.options
+    });
+  });
+  
+  // Remove this function - we don't need it here
+  // The toggle functionality should only be in ProductList.jsx
+  // const toggleMode = () => {
+  //   setDarkMode((prev) => !prev);
+  //   document.body.classList.toggle("dark-mode");
+  // };
+
+  console.log("Subtotal:", subtotal);
+  console.log("Tax:", tax);
+  console.log("Total:", total);
 
   return (
-    <div className="billing">
+    <div className={`billing ${darkMode ? "dark-theme" : ""}`}>
       <div className="billing-container">
         <div className="billing-header">Billing Section</div>
 
@@ -129,7 +140,7 @@ const BillingSection = () => {
             <p>Tax (8%): <span>₹{tax.toFixed(2)}</span></p>
             <p>Delivery: <span>₹{deliveryCharge.toFixed(2)}</span></p>
             <hr />
-            <h3>Total: <span>₹{total.toFixed(2)}</span></h3>
+            <h3>Total: <span data-label="Price">₹{total.toFixed(2)}</span></h3>
 
             <div className="payment-buttons">
               <button className="cash-btn">Cash</button>

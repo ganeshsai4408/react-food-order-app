@@ -1,5 +1,6 @@
 import React from "react";
 import { CartProvider } from "./assets/context/CartContext";
+import { DarkModeProvider } from "./assets/context/Dark";
 import ProductList from "./assets/components/ProductList";
 import BillingSection from "./assets/components/BillingSection";
 import "./App.css";
@@ -7,16 +8,16 @@ import "./App.css";
 function App() {
   return (
     <CartProvider>
-      <div className="app-container" style={{ display: "flex", padding: "20px" }}>
-        
-        <ProductList />
-        
-        <BillingSection />
-       
-      </div>
+      <DarkModeProvider>
+        <div className="app-container" style={{ display: "flex", padding: "20px" }}>
+          <div className="main-container">
+            <ProductList />
+            <BillingSection />
+          </div>
+        </div>
+      </DarkModeProvider>
     </CartProvider>
   );
 }
 
 export default App;
-
