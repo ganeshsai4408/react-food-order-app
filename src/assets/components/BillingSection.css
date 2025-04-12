@@ -278,9 +278,10 @@
   padding: 12px;
   border-radius: 8px;
   border: 1px solid #ccc;
-  gap: 40px;
+  gap: 0px;
   width: 100%;
-  max-width: 600px;
+  max-width: 700px;
+  font-size: 15px;
 }
 
 .order-type-options label {
@@ -290,7 +291,7 @@
   font-weight: 500;
   color: #6b0d27;
   cursor: pointer;
-  text-align: left; /* Left-aligned label text */
+  text-align: center; /* Left-aligned label text */
 }
 
 /* Center billing table */
