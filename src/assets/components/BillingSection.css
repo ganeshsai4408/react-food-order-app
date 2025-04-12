@@ -307,6 +307,9 @@
   font-weight: bold;
   text-align: center;
 }
+.billing-summary{
+  padding: 10px;
+}
 
 .billing-table td {
   padding: 10px;
