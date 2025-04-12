@@ -9,7 +9,7 @@ function App() {
   return (
     <CartProvider>
       <DarkModeProvider>
-        <div className="app-container" style={{ display: "flex", padding: "20px" }}>
+        <div className="app-container" style={{ display: "flex", padding: "10px" }}>
           <div className="main-container">
             <ProductList />
             <BillingSection />

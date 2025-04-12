@@ -46,10 +46,10 @@
   .billing {
     background: #fff;
     padding: 20px;
-    border-radius: 10px;
+    
     width: 100%;
     max-width: 450px;
-    margin-left: 20px;
+    
   }
   
   .billing table {

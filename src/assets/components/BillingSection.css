@@ -41,7 +41,7 @@
   }
   .billing-container {
     background: white;
-    border-radius: 10px;
+    
     padding: 0;
     overflow: hidden;
   }
@@ -58,16 +58,17 @@
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 15px;
+    padding: 10px;
     gap: 10px;
   }
   
   .customer-select {
     flex: 1;
-    padding: 10px;
+    
     border-radius: 8px;
     border: 1px solid #ccc;
     font-size: 14px;
+    padding-right: 30px;
   }
   
   .add-customer-btn {
@@ -106,14 +107,16 @@
     padding: 12px;
     border-radius: 8px;
     border: 1px solid #ccc;
+    gap: 40px;
   }
   
   .order-type-options label {
     display: flex;
     align-items: center;
-    gap: 8px;
+    gap: 6px;
     font-weight: 500;
     color: #6b0d27;
+    cursor: pointer;
   }
   .billing-table {
     width: 100%;
@@ -121,7 +124,302 @@
     font-size: 0.9rem;
     overflow-x: auto;
   }
-  @media (max-width: 600px) {
+/* Center align billing container contents with side labels */
+.billing-container {
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+  border-radius: 12px;
+  transition: background-color 0.3s, color 0.3s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center children horizontally */
+}
+
+/* Center the header */
+.billing-header {
+  background-color: #999;
+  padding: 10px 15px;
+  border-radius: 6px 6px 0 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  width: 100%; /* Full width for the header */
+  text-align: center;
+}
+
+/* Make form elements centered but maintain proper width */
+.billing-top-row,
+.billing-subsection {
+  width: 100%;
+  max-width: 600px; /* Limit width for better readability */
+}
+
+/* Center controls while maintaining space-between */
+.billing-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.customer-select,
+.branch-select {
+  width: 100%;
+  max-width: 600px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  text-align: center;
+  padding-right: 40px;
+  background-position: right 10px center;
+}
+
+/* Left-align section labels */
+.section-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+  color: #6b0d27;
+  text-align: left; /* Left-aligned labels */
+  width: 100%;
+  max-width: 600px;
+  padding-left: 5px;
+}
+ /* Center align billing container contents with side labels */
+.billing-container {
+  background-color: #f9f9f9;
+  color: #333;
+  padding: 20px;
+  border-radius: 12px;
+  transition: background-color 0.3s, color 0.3s;
+  overflow: hidden;
+  display: flex;
+  flex-direction: column;
+  align-items: center; /* Center children horizontally */
+}
+
+/* Center the header */
+.billing-header {
+  background-color: #999;
+  padding: 10px 15px;
+  border-radius: 6px 6px 0 0;
+  font-weight: 600;
+  font-size: 16px;
+  color: #fff;
+  margin-bottom: 0.5rem;
+  width: 100%; /* Full width for the header */
+  text-align: center;
+}
+
+/* Make form elements centered but maintain proper width */
+.billing-top-row,
+.billing-subsection {
+  width: 100%;
+  max-width: 600px; /* Limit width for better readability */
+}
+
+/* Center controls while maintaining space-between */
+.billing-controls {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  gap: 10px;
+  margin-bottom: 1rem;
+  width: 100%;
+}
+
+.customer-select,
+.branch-select {
+  width: 100%;
+  max-width: 600px;
+  padding: 8px 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  font-size: 14px;
+  text-align: center;
+  padding-right: 40px;
+  background-position: right 10px center;
+}
+
+/* Left-align section labels */
+.section-label {
+  font-weight: bold;
+  display: block;
+  margin-bottom: 6px;
+  color: #6b0d27;
+  text-align: left; /* Left-aligned labels */
+  width: 100%;
+  max-width: 600px;
+  padding-left: 5px;
+}
+
+/* Select Branch and Select Order Type labels */
+.billing-container > h2,
+.billing-container > h3 {
+  align-self: flex-start;
+  margin-left: calc(50% - 300px); /* Align with the form width */
+  color: #6b0d27;
+  font-weight: bold;
+  width: 100%;
+  max-width: 600px;
+}
+
+/* Center order type options but keep labels left-aligned */
+.order-type-options {
+  display: flex;
+  justify-content: center;
+  background: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  border: 1px solid #ccc;
+  gap: 40px;
+  width: 100%;
+  max-width: 600px;
+}
+
+.order-type-options label {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  font-weight: 500;
+  color: #6b0d27;
+  cursor: pointer;
+  text-align: left; /* Left-aligned label text */
+}
+
+/* Center billing table */
+.billing-table {
+  width: 100%;
+  max-width: 600px;
+  border-collapse: collapse;
+  font-size: 0.9rem;
+  margin: 0 auto;
+}
+
+.billing-table th {
+  padding: 10px;
+  font-weight: bold;
+  text-align: center;
+}
+
+.billing-table td {
+  padding: 10px;
+  border-bottom: 1px solid #ddd;
+  text-align: center;
+}
+
+/* Fix dropdown arrow positioning - Use dark color for light mode */
+select {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;utf8,<svg fill='%23333333' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+  background-repeat: no-repeat;
+  background-position: right 10px center;
+  padding-right: 40px;
+}
+
+/* Dark mode styles - making sure they're comprehensive */
+body.dark-theme .billing-container, 
+.dark-theme .billing-container {
+  background-color: #1e1e1e;
+  color: #ddd;
+}
+
+body.dark-theme .billing-header,
+.dark-theme .billing-header {
+  background-color: #333;
+  color: #ffffff;
+}
+
+body.dark-theme .order-type-options,
+.dark-theme .order-type-options {
+  background-color: #2b2b2b;
+  border-color: #444;
+}
+
+body.dark-theme .order-type-options label,
+.dark-theme .order-type-options label {
+  color: #ff8fa3;
+}
+
+body.dark-theme select,
+body.dark-theme input,
+body.dark-theme textarea,
+body.dark-theme button,
+.dark-theme select,
+.dark-theme input,
+.dark-theme textarea,
+.dark-theme button {
+  background-color: #2b2b2b;
+  color: #ddd;
+  border: 1px solid #444;
+}
+
+body.dark-theme select option,
+.dark-theme select option {
+  background-color: #2b2b2b;
+  color: #ddd;
+}
+
+body.dark-theme .billing-table,
+.dark-theme .billing-table {
+  background-color: #1f1f1f;
+  color: #f1f1f1;
+}
+
+body.dark-theme .billing-table tr:hover,
+.dark-theme .billing-table tr:hover {
+  background-color: #2a2a2a;
+}
+
+body.dark-theme .billing-table td,
+.dark-theme .billing-table td {
+  border-bottom: 1px solid #444;
+}
+
+body.dark-theme .section-label,
+.dark-theme .section-label,
+body.dark-theme .billing-container > h2,
+body.dark-theme .billing-container > h3,
+.dark-theme .billing-container > h2,
+.dark-theme .billing-container > h3 {
+  color: #ff8fa3;
+}
+
+/* Dark mode version of the arrow - white arrow for dark mode */
+body.dark-theme select,
+.dark-theme select {
+  background-image: url("data:image/svg+xml;utf8,<svg fill='white' height='24' viewBox='0 0 24 24' width='24' xmlns='http://www.w3.org/2000/svg'><path d='M7 10l5 5 5-5z'/></svg>");
+}
+
+/* Media queries for responsive design */
+@media (max-width: 600px) {
+  .billing-container {
+    padding: 15px 10px;
+  }
+  
+  .order-type-options {
+    flex-direction: column;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .billing-container > h2,
+  .billing-container > h3 {
+    margin-left: 10px;
+  }
+}
+
+
+
+ @media (max-width: 400px) {
     .billing-table thead {
       display: none;
     }
@@ -193,6 +491,20 @@
   
   .billing.dark-theme .billing-summary {
     background-color: #222;
-    color: #eee;
+    color: #999;
+  }
+  .billing-container {
+    padding: 15px 10px;
   }
   
+  .order-type-options {
+    flex-direction: flex;
+    gap: 15px;
+    align-items: center;
+  }
+  
+  .billing-container > h2,
+  .billing-container > h3 {
+    margin-left: 10px;
+  }
+
