@@ -1,0 +1,113 @@
+.modal-top {
+  display: flex;
+  align-items: center;
+  gap: 20px;
+  margin-bottom: 20px;
+  flex-wrap: wrap;
+}
+
+.modal-image-section {
+  flex: 1;
+  min-width: 250px;
+}
+
+.modal-image {
+  width: 100%;
+  height: auto;
+  border-radius: 12px;
+  object-fit: cover;
+}
+
+.modal-name-price {
+  flex: 1;
+  min-width: 200px;
+}
+
+.modal-name-price h2 {
+  margin: 0 0 10px 0;
+  font-size: 24px;
+}
+
+.modal-name-price p {
+  margin: 0;
+  font-size: 18px;
+  color: #555;
+}
+
+.modal-bottom {
+  margin-top: 20px;
+}
+
+.section {
+  margin-bottom: 15px;
+}
+
+.add-button {
+  background-color: #e91e63;
+  color: white;
+  padding: 10px 20px;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+}
+
+.add-button:hover {
+  background-color: #d81b60;
+}
+.modal-top {
+    display: flex;
+    align-items: center;
+    gap: 20px;
+    margin-bottom: 20px;
+    flex-wrap: wrap;
+  }
+  
+  .modal-image-section {
+    flex: 1;
+    min-width: 250px;
+  }
+  
+  .modal-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+  }
+  
+  .modal-name-price {
+    flex: 1;
+    min-width: 200px;
+  }
+  
+  .modal-name-price h2 {
+    margin: 0 0 10px 0;
+    font-size: 24px;
+  }
+  
+  .modal-name-price p {
+    margin: 0;
+    font-size: 18px;
+    color: #555;
+  }
+  
+  .modal-bottom {
+    margin-top: 20px;
+  }
+  
+  .section {
+    margin-bottom: 15px;
+  }
+  
+  .add-button {
+    background-color: #e91e63;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 8px;
+    cursor: pointer;
+  }
+  
+  .add-button:hover {
+    background-color: #d81b60;
+  }
+  
