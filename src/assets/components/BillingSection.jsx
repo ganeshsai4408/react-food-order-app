@@ -21,6 +21,23 @@ const BillingSection = () => {
   const subtotal = calculateSubtotal();
   const tax = calculateTax(taxRate);
   const total = calculateTotal(taxRate, deliveryCharge);
+    // 🧪 Log the cart and each item
+    console.log("🛒 Cart items:");
+    cart.forEach((item, index) => {
+      console.log(`Item ${index + 1}:`, {
+        name: item.name,
+        quantity: item.quantity,
+        price: item.price,
+        total: item.total,
+        addons: item.addons,
+        options: item.options
+      });
+    });
+  
+   
+    console.log("Subtotal:", subtotal);
+    console.log("Tax:", tax);
+    console.log("Total:", total);
 
   return (
     <div className="billing">
@@ -91,7 +108,13 @@ const BillingSection = () => {
                     </div>
                   </td>
 
-                  <td>₹{item.total.toFixed(2)}</td>
+                  <td>
+                  ₹{(
+                    (item.basePrice || item.price) +
+                    (item.options?.reduce((sum, opt) => sum + opt.price, 0) || 0) +
+                    (item.addons?.reduce((sum, addon) => sum + addon.price, 0) || 0)
+                    ) * item.quantity}
+                </td>
 
                   <td>
                     <button onClick={() => removeFromCart(item.id)}>❌</button>

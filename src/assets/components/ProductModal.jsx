@@ -43,14 +43,20 @@ const ProductModal = ({ product, onClose }) => {
     }
 
     const cartItem = {
-      id: Date.now(), // Unique
+      id: Date.now(), 
       name: product.name,
       basePrice: product.price,
       options: selectedOptions,
       addons: selectedAddons,
       quantity,
       total,
+      
+
     };
+    console.log("🛒 Sending item to addToCart:", cartItem);
+
+  
+    
 
     addToCart(cartItem);
     onClose();
@@ -61,7 +67,7 @@ const ProductModal = ({ product, onClose }) => {
       <div className="modal-content">
         <span className="close" onClick={onClose}>×</span>
   
-        {/* Image + name/price side by side */}
+       
         <div className="modal-top">
           <div className="modal-image-section">
             <img src={product.image} alt={product.name} className="modal-image" />
@@ -73,7 +79,7 @@ const ProductModal = ({ product, onClose }) => {
           </div>
         </div>
   
-        {/* Everything else goes below */}
+       
         <div className="modal-bottom">
           <div className="section">
             <h4>Choose Options (1-2 required)</h4>

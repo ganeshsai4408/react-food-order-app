@@ -12,15 +12,18 @@ export const CartProvider = ({ children }) => {
   const [customer, setCustomer] = useState(null);
   const [orderType, setOrderType] = useState("takeaway");
 
-  // 🔁 Save to localStorage whenever cart changes
   useEffect(() => {
     localStorage.setItem("cart", JSON.stringify(cart));
   }, [cart]);
 
   const addToCart = (item) => {
-    setCart((prev) => [...prev, item]);
-    toast.success(`${item.name} added to cart`);
+    setCart((prev) => {
+      const updatedCart = [...prev, item];
+      console.log("🛍 Cart updated:", updatedCart);
+      return updatedCart;
+    });
   };
+  
 
   const removeFromCart = (id) => {
     const item = cart.find((item) => item.id === id);
@@ -37,7 +40,11 @@ export const CartProvider = ({ children }) => {
     setCart((prev) =>
       prev.map((item) =>
         item.id === id
-          ? { ...item, quantity: item.quantity + 1, total: (item.quantity + 1) * item.price }
+          ? {
+              ...item,
+              quantity: item.quantity + 1,
+              total: (item.quantity + 1) * Number(item.price),
+            }
           : item
       )
     );
@@ -59,7 +66,11 @@ export const CartProvider = ({ children }) => {
       prev
         .map((item) =>
           item.id === id
-            ? { ...item, quantity: item.quantity - 1, total: (item.quantity - 1) * item.price }
+            ? {
+                ...item,
+                quantity: item.quantity - 1,
+                total: (item.quantity - 1) * Number(item.price),
+              }
             : item
         )
         .filter((item) => item.quantity > 0)
@@ -67,15 +78,21 @@ export const CartProvider = ({ children }) => {
   };
 
   const calculateSubtotal = () => {
-    return cart.reduce((sum, item) => sum + item.total, 0);
+    return cart.reduce((total, item) => {
+      const base = item.basePrice || item.price || 0;
+      const optionTotal = item.options?.reduce((sum, o) => sum + o.price, 0) || 0;
+      const addonTotal = item.addons?.reduce((sum, a) => sum + a.price, 0) || 0;
+      const itemTotal = (base + optionTotal + addonTotal) * item.quantity;
+      return total + itemTotal;
+    }, 0);
   };
-
-  const calculateTax = (rate) => {
-    return calculateSubtotal() * rate;
+  
+  const calculateTax = (taxRate) => {
+    return calculateSubtotal() * taxRate;
   };
-
-  const calculateTotal = (rate, delivery) => {
-    return calculateSubtotal() + calculateTax(rate) + delivery;
+  
+  const calculateTotal = (taxRate, deliveryCharge) => {
+    return calculateSubtotal() + calculateTax(taxRate) + deliveryCharge;
   };
 
   return (
